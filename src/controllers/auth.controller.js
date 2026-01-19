@@ -1,6 +1,10 @@
-
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
+import fs from 'fs';
+
+const logToFile = (msg) => {
+  fs.appendFileSync('login_debug.log', `${new Date().toISOString()} - ${msg}\n`);
+};
 
 const JWT_SECRET = process.env.JWT_SECRET || 'verysecret';
 const JWT_EXPIRES = '7d';
@@ -30,13 +34,25 @@ export async function register(req, res) {
 // Login
 export async function login(req, res) {
   try {
+    logToFile('Login request received');
+    logToFile(`Headers: ${JSON.stringify(req.headers)}`);
+    logToFile(`Body: ${JSON.stringify(req.body)}`);
     const { email, password } = req.body;
-    if (!email || !password) return res.status(400).json({ message: 'email and password required' });
+    if (!email || !password) {
+      logToFile('Missing email or password');
+      return res.status(400).json({ message: 'email and password required' });
+    }
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(401).json({ message: 'Invalid credentials' });
+    logToFile(`Login attempt for email: ${email}`);
+    if (!user) {
+      logToFile('User not found');
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
 
+    logToFile('User found, comparing password...');
     const valid = await user.comparePassword(password);
+    logToFile(`Password valid: ${valid}`);
     if (!valid) return res.status(401).json({ message: 'Invalid credentials' });
 
     const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
@@ -46,7 +62,7 @@ export async function login(req, res) {
       token
     });
   } catch (err) {
-    console.error('Login error:', err);
+    logToFile(`Login error: ${err.message}`);
     res.status(500).json({ message: err.message || 'Server error' });
   }
 }

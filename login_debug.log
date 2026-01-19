@@ -1,0 +1,6 @@
+2026-01-19T05:43:35.118Z - Login request received
+2026-01-19T05:43:35.119Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9,ml;q=0.8,hi;q=0.7"}
+2026-01-19T05:43:35.120Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-01-19T05:43:35.175Z - Login attempt for email: admin@cartify.com
+2026-01-19T05:43:35.176Z - User found, comparing password...
+2026-01-19T05:43:35.246Z - Password valid: true

@@ -1,5 +1,5 @@
 // src/controllers/admin.controller.js
-import Product from "../models/product.model.js"; 
+import Product from "../models/product.model.js";
 import AdminAction from "../models/adminAction.model.js";
 import User from "../models/user.model.js";
 import Order from "../models/order.model.js";
@@ -37,8 +37,9 @@ export async function createProduct(req, res) {
 
 export const createProduct = async (req, res) => {
   try {
-    console.log("BODY:", req.body);
-    console.log("FILE:", req.file);
+    // Debug logs (uncomment for debugging)
+    // console.log("BODY:", req.body);
+    // console.log("FILE:", req.file);
 
     if (!req.body || !req.file) {
       return res.status(400).json({
@@ -48,10 +49,31 @@ export const createProduct = async (req, res) => {
 
     const { name, price, category, description, stock } = req.body;
 
+    // Validate category - it should be an ObjectId
+    // If frontend sends category name instead of ID, we need to look it up
+    let categoryId = category;
+
+    // Check if category is a valid ObjectId format (24 hex characters)
+    const isValidObjectId = /^[0-9a-fA-F]{24}$/.test(category);
+
+    if (!isValidObjectId) {
+      // If not a valid ObjectId, assume it's a category name and look it up
+      const Category = (await import("../models/category.model.js")).default;
+      const categoryDoc = await Category.findOne({ name: category });
+
+      if (!categoryDoc) {
+        return res.status(400).json({
+          message: `Category "${category}" not found. Please select a valid category.`,
+        });
+      }
+
+      categoryId = categoryDoc._id;
+    }
+
     const product = await Product.create({
       name,
       price,
-      category,
+      category: categoryId,
       description,
       stock,
       image: `/uploads/${req.file.filename}`,
@@ -60,7 +82,10 @@ export const createProduct = async (req, res) => {
     res.status(201).json(product);
   } catch (error) {
     console.error("Create product error:", error);
-    res.status(500).json({ message: "Create product failed" });
+    res.status(500).json({
+      message: "Create product failed",
+      error: error.message
+    });
   }
 };
 
@@ -122,7 +147,7 @@ export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find()
       .populate("user", "username email");
-      
+
 
     res.json({ orders });
   } catch (err) {
