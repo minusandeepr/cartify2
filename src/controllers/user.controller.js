@@ -19,7 +19,7 @@ export const getMe = async (req, res) => {
 /**
  * PUT /api/users/me
  */
-export const updateMe = async (req, res) => {
+/*export const updateMe = async (req, res) => {
   try {
     // Accept name from either "name" or "username"
     const nameInput = req.body.name ?? req.body.username ?? "";
@@ -44,7 +44,34 @@ export const updateMe = async (req, res) => {
     console.error("updateMe error:", err);
     return res.status(500).json({ message: "Server error" });
   }
+};*/
+export const updateMe = async (req, res) => {
+  try {
+    const updates = {};
+
+    if (req.body.name || req.body.username) {
+      updates.username = String(req.body.name || req.body.username).trim();
+    }
+
+    if (req.body.shippingAddress) {
+      updates.shippingAddress = req.body.shippingAddress;
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user.id,
+      { $set: updates },
+      { new: true, runValidators: true }
+    ).select("-password");
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    return res.json({ user });
+  } catch (err) {
+    console.error("updateMe error:", err);
+    return res.status(500).json({ message: "Server error" });
+  }
 };
+
 
 /**
  * PUT /api/users/me/avatar
@@ -118,14 +145,18 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-  try {
-    const user = await User.findByIdAndDelete(req.params.id);
+  const user = await User.findById(req.params.id);
+  if (!user) return res.status(404).json({ message: "User not found" });
 
-    if (!user) return res.status(404).json({ message: "User not found" });
-
-    return res.json({ message: "User deleted" });
-  } catch (err) {
-    console.error("deleteUser error:", err);
-    return res.status(500).json({ message: "Server error" });
+  if (user.role === "admin") {
+    const adminCount = await User.countDocuments({ role: "admin" });
+    if (adminCount <= 1) {
+      return res.status(400).json({
+        message: "Cannot delete the last admin",
+      });
+    }
   }
+
+  await user.deleteOne();
+  res.json({ message: "User deleted" });
 };

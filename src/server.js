@@ -1,10 +1,11 @@
 // src/server.js
 import dotenv from "dotenv";
+dotenv.config();
 import mongoose from "mongoose";
 import app from "./app.js";
-
-dotenv.config();
-
+import http from "http";
+import { initSocket } from "./socket.js";
+import adminRoutes from "./routes/admin.routes.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -23,14 +24,21 @@ async function start() {
 
     await mongoose.connect(MONGO_URI);
     console.log("MongoDB connected");
+    const server = http.createServer(app);
+    initSocket(server);
 
-    app.listen(PORT, () => {
-      console.log(`Server listening on port ${PORT}`);
+    //app.listen(PORT, () => {
+     // console.log(`Server listening on port ${PORT}`);
+     server.listen(PORT, () => {
+      console.log(`Server + Socket running on port ${PORT}`);
     });
   } catch (err) {
     console.error("Failed to start server:", err);
     process.exit(1);
   }
 }
+app.use("/api/admin", adminRoutes);
 
 start();
+
+

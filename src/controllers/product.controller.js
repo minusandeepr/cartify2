@@ -29,7 +29,7 @@ export async function getProduct(req, res) {
   }
 }
 
-// POST /api/products
+/* POST /api/products
 export async function createProduct(req, res) {
   try {
     const payload = req.body;
@@ -40,7 +40,29 @@ export async function createProduct(req, res) {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+}*/
+
+export async function createProduct(req, res) {
+  try {
+    const payload = req.body;
+
+    let images = [];
+    if (req.file) {
+      const url = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+      images.push({ key: req.file.filename, url });
+    }
+
+    const product = await Product.create({
+      ...payload,
+      images
+    });
+
+    res.status(201).json(product);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 }
+
 
 // PUT /api/products/:id
 export async function updateProduct(req, res) {
@@ -73,14 +95,22 @@ export async function uploadProductImage(req, res) {
     const url = `${protocol}://${host}/uploads/${req.file.filename}`;
 
   
-    const updated = await Product.findByIdAndUpdate(
+    /*const updated = await Product.findByIdAndUpdate(
       req.params.id,
       {
         $push: { images: { key: req.file.filename, url } },
         $set: { image: url }           
       },
       { new: true, runValidators: false }
-    );
+    );*/
+    const updated = await Product.findByIdAndUpdate(
+  req.params.id,
+  {
+    $push: { images: { key: req.file.filename, url } }
+  },
+  { new: true }
+);
+
 
     if (!updated) return res.status(404).json({ message: "Product not found" });
 

@@ -14,32 +14,10 @@ export async function listProducts(req, res) {
   }
 }
 
-/* Create product 
-export async function createProduct(req, res) {
-  try {
-    const data = req.body;
-    const product = new Product(data);
-    await product.save();
-
-    // log
-    await AdminAction.create({
-      admin: req.user.id,
-      action: "create_product",
-      resourceId: product._id,
-      details: { name: product.name, price: product.price }
-    });
-
-    res.status(201).json(product);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-}*/
 
 export const createProduct = async (req, res) => {
   try {
-    // Debug logs (uncomment for debugging)
-    // console.log("BODY:", req.body);
-    // console.log("FILE:", req.file);
+    
 
     if (!req.body || !req.file) {
       return res.status(400).json({
@@ -49,15 +27,11 @@ export const createProduct = async (req, res) => {
 
     const { name, price, category, description, stock } = req.body;
 
-    // Validate category - it should be an ObjectId
-    // If frontend sends category name instead of ID, we need to look it up
     let categoryId = category;
 
-    // Check if category is a valid ObjectId format (24 hex characters)
     const isValidObjectId = /^[0-9a-fA-F]{24}$/.test(category);
 
     if (!isValidObjectId) {
-      // If not a valid ObjectId, assume it's a category name and look it up
       const Category = (await import("../models/category.model.js")).default;
       const categoryDoc = await Category.findOne({ name: category });
 
@@ -70,14 +44,21 @@ export const createProduct = async (req, res) => {
       categoryId = categoryDoc._id;
     }
 
+    
     const product = await Product.create({
-      name,
-      price,
-      category: categoryId,
-      description,
-      stock,
-      image: `/uploads/${req.file.filename}`,
-    });
+  name,
+  price,
+  category: categoryId,
+  description,
+  stock,
+  images: [
+    {
+      key: req.file.filename,
+      url: `/uploads/${req.file.filename}`
+    }
+  ],
+});
+
 
     res.status(201).json(product);
   } catch (error) {
@@ -102,24 +83,36 @@ export async function getProduct(req, res) {
 }
 
 
-/* Update */
 export async function updateProduct(req, res) {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!product) return res.status(404).json({ message: "Not found" });
+    const updateData = { ...req.body };
 
-    await AdminAction.create({
-      admin: req.user.id,
-      action: "update_product",
-      resourceId: product._id,
-      details: req.body
-    });
+    
+    if (req.file) {
+      updateData.images = [
+        {
+          key: req.file.filename,
+          url: `/uploads/${req.file.filename}`
+        }
+      ];
+    }
+
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    if (!product) {
+      return res.status(404).json({ message: "Not found" });
+    }
 
     res.json(product);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 }
+
 
 /* Delete */
 export async function deleteProduct(req, res) {
@@ -255,3 +248,51 @@ export const getRevenueChart = async (req, res) => {
     res.status(500).json({ message: "Failed to load revenue chart" });
   }
 };
+
+// GET /api/admin/users
+export const getAllUsers = async (req, res) => {
+  const users = await User.find().select("-password");
+  res.json(users);
+};
+
+// PUT /api/admin/users/:id/role
+export const updateUserRole = async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) return res.status(404).json({ message: "User not found" });
+
+  user.role = req.body.role;
+  await user.save();
+
+  res.json(user);
+};
+// PUT /api/admin/users/:id/block
+export const toggleUserStatus = async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  // Prevent admin from blocking themselves
+  if (user._id.toString() === req.user._id.toString()) {
+    return res.status(400).json({
+      message: "You cannot block yourself"
+    });
+  }
+
+  user.isActive = !user.isActive;
+  await user.save();
+
+  res.json({
+    message: `User ${user.isActive ? "unblocked" : "blocked"} successfully`,
+    user
+  });
+};
+
+
+// DELETE /api/admin/users/:id
+export const deleteUser = async (req, res) => {
+  await User.findByIdAndDelete(req.params.id);
+  res.json({ message: "User deleted" });
+};
+

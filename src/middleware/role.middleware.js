@@ -1,9 +1,5 @@
 // src/middleware/role.middleware.js
 
-/**
- * Middleware factory: requireRole("admin"), requireRole("admin", "manager"), etc.
- * Assumes `protect` has already run and set `req.user`.
- */
 export function requireRole(...allowedRoles) {
   return (req, res, next) => {
     if (!req.user) {

@@ -1,5 +1,106 @@
+import Razorpay from "razorpay";
+import crypto from "crypto";
 import Order from "../models/order.model.js";
 import Cart from "../models/cart.model.js";
+
+/* =========================
+   CREATE RAZORPAY ORDER
+========================= */
+export const createRazorpayOrder = async (req, res) => {
+  try {
+    const { orderId } = req.body;
+
+    const order = await Order.findById(orderId);
+    if (order.status === "Cancelled") {
+  return res.status(400).json({
+    message: "Cannot pay for a cancelled order",
+  });
+}
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+     if (order.user.toString() !== req.user._id.toString()) {
+    return res.status(403).json({ message: "Unauthorized" });
+  }
+
+    const razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+
+    const options = {
+      amount: order.totalAmount * 100, // paise
+      currency: "INR",
+      receipt: `order_${order._id}`,
+    };
+
+    const razorpayOrder = await razorpay.orders.create(options);
+
+    // save razorpay order id
+    order.payment = {
+  ...order.payment,
+  razorpayOrderId: razorpayOrder.id,
+};
+
+    await order.save();
+
+    res.json({
+      razorpayOrderId: razorpayOrder.id,
+      amount: razorpayOrder.amount,
+      currency: razorpayOrder.currency,
+      key: process.env.RAZORPAY_KEY_ID,
+    });
+  } catch (err) {
+    console.error("Create Razorpay Order Error:", err);
+    res.status(500).json({ message: "Failed to create Razorpay order" });
+  }
+};
+
+/* =========================
+   VERIFY PAYMENT
+========================= */
+export const verifyRazorpayPayment = async (req, res) => {
+  try {
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+    } = req.body;
+
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+      .update(body)
+      .digest("hex");
+
+    if (expectedSignature !== razorpay_signature) {
+      return res.status(400).json({ message: "Invalid payment signature" });
+    }
+
+    const order = await Order.findOne({
+      "payment.razorpayOrderId": razorpay_order_id,
+    });
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    order.payment.razorpayPaymentId = razorpay_payment_id;
+    order.payment.razorpaySignature = razorpay_signature;
+    order.isPaid = true;
+    order.status = "Paid";
+    order.paidAt = new Date();
+
+    await order.save();
+
+    res.json({ message: "Payment verified successfully", order });
+  } catch (err) {
+    console.error("Verify Payment Error:", err);
+    res.status(500).json({ message: "Payment verification failed" });
+  }
+};
 
 /**
  * POST /api/orders
@@ -19,13 +120,21 @@ export const createOrder = async (req, res) => {
       return res.status(400).json({ message: "Cart is empty" });
     }
 
-    const orderItems = cart.items.map((item) => ({
+   /* const orderItems = cart.items.map((item) => ({
   productId: item.product._id, 
   name: item.product.name,
  image: item.product.images?.[0]?.url || "",
   price: item.product.price,
   quantity: item.quantity,
+}));*/
+const orderItems = cart.items.map((item) => ({
+  product: item.product._id,
+  name: item.product.name,
+  image: item.product.images?.[0]?.url || "",
+  price: item.product.price,
+  quantity: item.quantity,
 }));
+
 
 
     const totalAmount = orderItems.reduce(
@@ -34,10 +143,20 @@ export const createOrder = async (req, res) => {
     );
 
     // 3️⃣ Create order
+    const shippingAddress = req.body?.shippingAddress;
+
+if (!shippingAddress) {
+  return res.status(400).json({
+    message: "Shipping address is required",
+  });
+}
+
+
     const order = await Order.create({
       user: userId,
       items: orderItems,
       totalAmount,
+     shippingAddress,
       status: "Pending",
     });
 
@@ -75,6 +194,7 @@ export const getOrderById = async (req, res) => {
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
+    
 
     res.json(order);
   } catch (err) {
@@ -92,7 +212,8 @@ export const cancelOrder = async (req, res) => {
     }
 
     // Ensure user owns the order
-    if (order.user.toString() !== req.user._id.toString()) {
+    if (order.user.toString() !== req.user._id.toString() &&
+  !req.user.isAdmin) {
       return res.status(403).json({ message: "Not authorized" });
     }
 

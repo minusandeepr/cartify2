@@ -16,6 +16,9 @@ import {
   updateOrderStatus,
   getAdminStats,
   getRevenueChart,
+  getAllUsers,
+  updateUserRole,
+  deleteUser,
 } from "../controllers/admin.controller.js";
 
 import {
@@ -39,7 +42,13 @@ router.use(adminLogger);
 // Product management
 router.get("/products", listProducts);
 router.get("/products/:id", getProduct);
-router.put("/products/:id", updateProduct);
+//router.put("/products/:id", updateProduct);
+router.put(
+  "/products/:id",
+  upload.single("image"),
+  updateProduct
+);
+
 router.delete("/products/:id", deleteProduct);
 // Orders management (ADMIN)
 router.get("/orders", getAllOrders);
@@ -66,6 +75,15 @@ router.get("/categories/:id", getCategory);
 router.put("/categories/:id", updateCategory);
 router.delete("/categories/:id", deleteCategory);
 
-
+//User management
+router.get("/users", getAllUsers);
+//router.put("/users/:id/role", updateUserRole);
+router.delete("/users/:id", deleteUser);
+router.put("/users/:id/toggle-status", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  user.isActive = !user.isActive;
+  await user.save();
+  res.json(user);
+});
 
 export default router;

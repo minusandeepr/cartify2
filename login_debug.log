@@ -4,3 +4,129 @@
 2026-01-19T05:43:35.175Z - Login attempt for email: admin@cartify.com
 2026-01-19T05:43:35.176Z - User found, comparing password...
 2026-01-19T05:43:35.246Z - Password valid: true
+2026-01-20T10:14:57.150Z - Login request received
+2026-01-20T10:14:57.150Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-20T10:14:57.151Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-01-20T10:14:57.159Z - Login attempt for email: anijasara@gmail.com
+2026-01-20T10:14:57.160Z - User found, comparing password...
+2026-01-20T10:14:57.250Z - Password valid: true
+2026-01-23T06:58:58.307Z - Login request received
+2026-01-23T06:58:58.308Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-23T06:58:58.308Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-01-23T06:58:58.344Z - Login attempt for email: admin@cartify.com
+2026-01-23T06:58:58.345Z - User found, comparing password...
+2026-01-23T06:58:58.423Z - Password valid: true
+2026-01-24T14:12:32.155Z - Login request received
+2026-01-24T14:12:32.157Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-24T14:12:32.158Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-01-24T14:12:32.174Z - Login attempt for email: anijasara@gmail.com
+2026-01-24T14:12:32.175Z - User found, comparing password...
+2026-01-24T14:12:32.437Z - Password valid: true
+2026-01-27T14:56:20.103Z - Login request received
+2026-01-27T14:56:20.105Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-27T14:56:20.107Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-01-27T14:56:20.123Z - Login attempt for email: anijasara@gmail.com
+2026-01-27T14:56:20.124Z - User found, comparing password...
+2026-01-27T14:56:20.336Z - Password valid: true
+2026-01-28T06:28:00.929Z - Login request received
+2026-01-28T06:28:00.930Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-28T06:28:00.931Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-01-28T06:28:00.939Z - Login attempt for email: anijasara@gmail.com
+2026-01-28T06:28:00.939Z - User found, comparing password...
+2026-01-28T06:28:01.018Z - Password valid: true
+2026-01-28T06:32:58.616Z - Login request received
+2026-01-28T06:32:58.617Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-01-28T06:32:58.617Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-01-28T06:32:58.630Z - Login attempt for email: anijasara@gmail.com
+2026-01-28T06:32:58.630Z - User found, comparing password...
+2026-01-28T06:32:58.749Z - Password valid: true
+2026-02-04T07:39:38.961Z - Login request received
+2026-02-04T07:39:38.963Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-04T07:39:38.964Z - Body: {"email":"annapeter@gmail.com","password":"peteranna@123"}
+2026-02-04T07:39:38.973Z - Login attempt for email: annapeter@gmail.com
+2026-02-04T07:39:38.973Z - User found, comparing password...
+2026-02-04T07:39:39.054Z - Password valid: true
+2026-02-04T07:44:41.862Z - Login request received
+2026-02-04T07:44:41.863Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-04T07:44:41.864Z - Body: {"email":"annapeter@gmail.com","password":"peteranna@123"}
+2026-02-04T07:44:41.869Z - Login attempt for email: annapeter@gmail.com
+2026-02-04T07:44:41.870Z - User found, comparing password...
+2026-02-04T07:44:41.942Z - Password valid: true
+2026-02-04T07:55:15.915Z - Login request received
+2026-02-04T07:55:15.916Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-04T07:55:15.917Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-02-04T07:55:15.931Z - Login attempt for email: anijasara@gmail.com
+2026-02-04T07:55:15.932Z - User found, comparing password...
+2026-02-04T07:55:16.024Z - Password valid: true
+2026-02-11T08:51:49.606Z - Login request received
+2026-02-11T08:51:49.609Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-11T08:51:49.612Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-02-11T08:51:49.684Z - Login attempt for email: anijasara@gmail.com
+2026-02-11T08:51:49.686Z - User found, comparing password...
+2026-02-11T08:51:49.891Z - Password valid: true
+2026-02-11T17:51:20.936Z - Login request received
+2026-02-11T17:51:20.939Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-11T17:51:20.941Z - Body: {"email":"anijasara@gmail.com","password":"saraanija@123"}
+2026-02-11T17:51:20.957Z - Login attempt for email: anijasara@gmail.com
+2026-02-11T17:51:20.958Z - User found, comparing password...
+2026-02-11T17:51:21.220Z - Password valid: true
+2026-02-12T05:50:29.475Z - Login request received
+2026-02-12T05:50:29.503Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"54","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-12T05:50:29.505Z - Body: {"email":"admin@cartify.com","password":"AdminPass12"}
+2026-02-12T05:50:29.513Z - Login attempt for email: admin@cartify.com
+2026-02-12T05:50:29.514Z - User found, comparing password...
+2026-02-12T05:50:29.726Z - Password valid: false
+2026-02-12T06:02:45.679Z - Login request received
+2026-02-12T06:02:45.681Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-12T06:02:45.682Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-02-12T06:02:45.699Z - Login attempt for email: admin@cartify.com
+2026-02-12T06:02:45.700Z - User found, comparing password...
+2026-02-12T06:02:45.924Z - Password valid: true
+2026-02-12T06:25:46.983Z - Login request received
+2026-02-12T06:25:46.985Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-12T06:25:46.986Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-02-12T06:25:47.017Z - Login attempt for email: admin@cartify.com
+2026-02-12T06:25:47.018Z - User found, comparing password...
+2026-02-12T06:25:47.229Z - Password valid: true
+2026-02-12T08:47:00.928Z - Login request received
+2026-02-12T08:47:00.930Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-12T08:47:00.931Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-02-12T08:47:00.945Z - Login attempt for email: admin@cartify.com
+2026-02-12T08:47:00.946Z - User found, comparing password...
+2026-02-12T08:47:01.213Z - Password valid: true
+2026-02-19T08:53:18.215Z - Login request received
+2026-02-19T08:53:18.217Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"58","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-19T08:53:18.218Z - Body: {"email":"annapeter@gmail.com","password":"peteranna@123"}
+2026-02-19T08:53:18.240Z - Login attempt for email: annapeter@gmail.com
+2026-02-19T08:53:18.241Z - User found, comparing password...
+2026-02-19T08:53:18.336Z - Password valid: true
+2026-02-19T23:50:28.482Z - Login request received
+2026-02-19T23:50:28.484Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"54","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-19T23:50:28.485Z - Body: {"email":"rinumol@gmail.com","password":"Molrinu@123"}
+2026-02-19T23:50:28.490Z - Login attempt for email: rinumol@gmail.com
+2026-02-19T23:50:28.492Z - User found, comparing password...
+2026-02-19T23:50:28.698Z - Password valid: true
+2026-02-19T23:56:44.984Z - Login request received
+2026-02-19T23:56:44.987Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"54","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-19T23:56:44.988Z - Body: {"email":"rinumol@gmail.com","password":"Molrinu@123"}
+2026-02-19T23:56:44.998Z - Login attempt for email: rinumol@gmail.com
+2026-02-19T23:56:44.999Z - User found, comparing password...
+2026-02-19T23:56:45.355Z - Password valid: true
+2026-02-20T00:20:33.293Z - Login request received
+2026-02-20T00:20:33.294Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"55","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-20T00:20:33.296Z - Body: {"email":"admin@cartify.com","password":"AdminPass123"}
+2026-02-20T00:20:33.314Z - Login attempt for email: admin@cartify.com
+2026-02-20T00:20:33.320Z - User found, comparing password...
+2026-02-20T00:20:33.691Z - Password valid: true
+2026-02-20T05:40:54.866Z - Login request received
+2026-02-20T05:40:54.867Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"54","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-20T05:40:54.868Z - Body: {"email":"rinumol@gmail.com","password":"Molrinu@123"}
+2026-02-20T05:40:54.885Z - Login attempt for email: rinumol@gmail.com
+2026-02-20T05:40:54.886Z - User found, comparing password...
+2026-02-20T05:40:55.112Z - Password valid: true
+2026-02-20T06:53:25.785Z - Login request received
+2026-02-20T06:53:25.787Z - Headers: {"host":"localhost:5000","connection":"keep-alive","content-length":"54","sec-ch-ua-platform":"\"Windows\"","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","content-type":"application/json","sec-ch-ua-mobile":"?0","origin":"http://localhost:5173","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:5173/","accept-encoding":"gzip, deflate, br, zstd","accept-language":"en-US,en;q=0.9"}
+2026-02-20T06:53:25.787Z - Body: {"email":"rinumol@gmail.com","password":"Molrinu@123"}
+2026-02-20T06:53:25.791Z - Login attempt for email: rinumol@gmail.com
+2026-02-20T06:53:25.792Z - User found, comparing password...
+2026-02-20T06:53:25.868Z - Password valid: true

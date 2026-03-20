@@ -27,6 +27,12 @@ const protect = async (req, res, next) => {
 
     req.user = user; // 
     next();
+    if (!req.user.isActive) {
+  return res.status(403).json({
+    message: "Account blocked"
+  });
+}
+
   } catch (err) {
     console.error("Auth error:", err);
     return res.status(401).json({ message: "Not authorized" });
